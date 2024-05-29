@@ -81,7 +81,7 @@ the **nice to have** increase your score and the **specials** will surely demons
 3. Change the navigation element to update the url of the page when clicked and to show the correct page (and page size if implemented) when the browser page is refreshed.
 4. Validate the parameters just added in the url to match the format accepted by the server for page (and page size) and redirect to a "Bad request" page in case the parameters are invalid.
 5. Add a page or dialog and display a form that allows to create flights with the mentioned columns. Make sure the `code` is unique before sending.
-6. Add a new control to this form with a file upload on the `photo` field. Restrict this new file upload only to images.
+6. Add a new control to this form with a file upload on the `photo` field. Restrict this new file upload only to images. Note that a binary is expected for the photo.
 7. Add a preview to show the photo before submit when the user changes the value of this control.
 8. Send this information to the server making sure to show a loading screen and closing the dialog (or navigating back to the list) only after the flight is created on the server. You might need to enable async file processing on the server for this.
 9. Add an error strip in case the flight creation resulted in error and allow the user to retry the creation in the form again without having to retype all the information.
