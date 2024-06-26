@@ -85,7 +85,7 @@ export const useFetch = <T,>(
         const response = await action(tokenToUse || null, b, {
           cancelToken: cancelTokenSource.token,
         });
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        await new Promise((resolve) => setTimeout(resolve, 1000)); // to simulate loading
         setData(response.data);
         setCompleted(true);
         onComplete(response.data, b);

@@ -5,7 +5,15 @@ import CustomTable from "../components/customTable";
 import type { TableColumn } from "../components/customTable";
 import PageContainer from "../components/pageContainer";
 import { useFilters } from "../hooks/useFilters";
-import { Button, Dropdown, MenuProps, Modal, Pagination, Select } from "antd";
+import {
+  Button,
+  Dropdown,
+  MenuProps,
+  Modal,
+  Pagination,
+  Select,
+  message,
+} from "antd";
 import SearchInput from "../components/searchInput";
 import FlightModal from "../components/modals/Flight";
 import { Eye } from "@phosphor-icons/react";
@@ -59,10 +67,19 @@ function HomePage() {
     return !isNaN(number) && number > 0 && number <= 100; // assuming 100 is the max allowed page size
   };
 
+  const isValidSearchQuery = (value: any) => {
+    console.log(value);
+
+    if (value === undefined || value === null || value === "") return true;
+    const regex = /^[a-zA-Z]+$/;
+    return regex.test(value);
+  };
+
   useEffect(() => {
     if (
       !isValidPageNumber(query.get("page")) ||
-      !isValidPageSize(query.get("size"))
+      !isValidPageSize(query.get("size")) ||
+      !isValidSearchQuery(query.get("code"))
     ) {
       throw new Error("Invalid query parameters");
     }
@@ -110,6 +127,10 @@ function HomePage() {
     onComplete: () => {
       startFetch(filters, false);
       setDeleteConfirmationModal({ id: "", isOpen: false });
+      message.success("Flight deleted successfully");
+    },
+    onError: (error) => {
+      message.error(error);
     },
   });
 
