@@ -30,49 +30,13 @@ The **user** has:
 - email: user's email 
 - password: user's password 
 
-Create a web application **(front-end only)** in your favorite language and framework to store and display flight data, integrating with the REST API of the provided server (see below how to run the server). 
+#### Backend Server
 
-You can use any component library or css framework you prefer. Give it a nice and consistent look and feel.
-
-#### How to run the server
-
-Install the server using npm. Node version `14.15` or greater is required
-
-```bash
-npm install @musalasoft/flights-server --save-dev
-```
-
-Add it to the scripts section of your package.json
-
-```json
-{
-  "scripts": {
-    "server": "flights-server"
-  }
-}
-```
-
-If you have added the server in the scripts section, you can run it with `npm run server`. Alternatively you can run it with `npx flights-server`
-
-Check the webpage that opens automatically in your browser for more instructions on how to configure the server (by default http://localhost:3000) and its API documentaion.
-
-By default, even though some of the endpoints requires authentication, they can be accessed without it. You can start development without using the authentication. We have some requirements below, where authentication is needed, so in order to enable authenticaion on server, it can be run with adding `--auth` parameter like `flights-server --auth`. Also, to simulate async processing, the server can be run with `--async` parameter like `flights-server --async`.
-
-Please check carefully the API documentation and request parameters. The documentation is self-explanatory, but make sure you check the details. For example:
-```bash
-GET /flights
-```
-provides you option to send paging requests. 
-
-For full configuration options of the server, check the webpage that opens automatically.
+You will need to start the server before running the react app `npm run server`. Alternatively you can run it with `npx flights-server`
+Please note that you may need to enable writing permission for the server directory in the node_modules so that it can run normally
 
 
 ### Requirements
-
-Make sure you read all of the requirements in order to get full information of the task's expectations. Even though the list of items seams long, once you read it all, you will notice that they are related and the list just helps you to easily finish the task. Then try to complete the following features one after another in order (recommended but not necessary). 
-
-The features are grouped in different categories. The features marked as **required** are the bare minimum necessary to qualify,
-the **nice to have** increase your score and the **specials** will surely demonstrate your talent.
 
 #### Required features
 
